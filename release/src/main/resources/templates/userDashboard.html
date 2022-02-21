@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Blog - Dark Admin</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous"/>
+
+
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="css/local.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous">
+    </script>
+    <script src="../js/blog.js"></script>
+
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Back to Admin</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li><a href="index.html"><i class="fa fa-bullseye"></i> View Blog</a></li>
+                <li><a href="portfolio.html"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create
+                    New Post</a></li>
+                <li><a href="blog.html"><i class="fa fa-globe"></i> Edit Post</a></li>
+                <li><a href="signup.html"><i class="fa fa-list-ol"></i> Comments</a></li>
+                <li><a href="register.html"><i class="fa fa-font"></i> Reading List</a></li>
+                <li><a data-toggle="modal" data-target="#blogCreateModal" href="blog.html"><span class="glyphicon glyphicon-blackboard"
+                                                                                                 aria-hidden="true"></span> Create
+                    Blog</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right navbar-user">
+                <li class="dropdown messages-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages
+                        <span class="badge">2</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">2 New Messages</li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <span class="avatar"><i class="fa fa-bell"></i></span>
+                                <span class="message">Security alert</span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <span class="avatar"><i class="fa fa-bell"></i></span>
+                                <span class="message">Security alert</span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        <span th:text="${user.username}"/><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                        <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/logout"><i class="fa fa-power-off"></i> Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="created"></div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div>
+                            <p id="created">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>Article Title</h2>
+
+                        <div class="created"></div>
+
+                    </div>
+                </div>
+                <hr/>
+
+                <!-- the comment box -->
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+
+                <hr/>
+
+                <!-- the comments -->
+                <h3>Blog contents
+                    <small>2014/03/07 11:43 PM</small>
+                </h3>
+                <p>This is a very interesting blog, well structured and organized. Would be great if you included more
+                    information on other IT topics as well.</p>
+
+                <h3>Contacts
+                    <small>2014/03/09 12:11 PM</small>
+                </h3>
+                <p>I wanted to get in touch with the author of the blog, but I see no way to do this.</p>
+
+                <!--Frame for chat-bot-->
+                <iframe
+                        width="300"
+                        height="430"
+                        src="https://console.api.ai/api-client/demo/embedded/c4e4ef7a-0eb9-4805-91a1-c432dc3698f2">
+                </iframe>
+            </div>
+            <!-- <div class="col-sm-3">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>Side</h2>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">News</div>
+                            <div class="panel-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                            </div>
+                            <div class="text-center">
+                                <a href="#"><i class="fa fa-plus"></i>Full Story</a>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="panel panel-default">
+                            <div class="panel-heading">News</div>
+                            <div class="panel-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                            </div>
+                            <div class="text-center">
+                                <a href="#"><i class="fa fa-plus"></i>Full Story</a>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="panel panel-default">
+                            <div class="panel-heading">News</div>
+                            <div class="panel-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                            </div>
+                            <div class="text-center">
+                                <a href="#"><i class="fa fa-plus"></i>Full Story</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="modal fade" id="blogCreateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Lets BlogIT</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="blogform" action="#" th:action="@{/blog}" th:object="${blogEntity}"
+                              method="post">
+                            <div class="form-group">
+                                <label for="recipient-name" class="form-control-label">Blog Name</label>
+                                <input type="text" class="form-control" id="recipient-name" th:field="*{blogName}"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="form-control-label">Write Your Blog</label>
+                                <textarea class="form-control" id="message-text" rows="20"
+                                          th:field="*{blogDescription}"></textarea>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block" id="submit_blog_create" data-dismiss="modal">Submit
+                                Blog
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

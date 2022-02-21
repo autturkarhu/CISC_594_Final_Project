@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sign up Success</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'id: ' + ${signupEntity.username}"/>
+<p th:text="'content: ' + ${signupEntity.password}"/>
+<p th:text="'from: ' + ${signupEntity.location}"/>
+<p th:text="'blog name: ' + ${signupEntity.blogName}"/>
+<p th:text="'first name: ' + ${signupEntity.firstName}"/>
+<p th:text="'last name: ' + ${signupEntity.lastName}"/>
+<p th:text="'user id: ' + ${signupEntity.id}"/>
+<p th:text="'encrypted token: ' + ${signupEntity.encryptedToken}"/>
+<p th:text="'blog id: ' + ${signupEntity.blogId}"/>
+<p>Signed up successfully. Please Logout and Log back in to start blogging</p>
+<a href="/logout">Logout</a>
+</body>
+</html>
