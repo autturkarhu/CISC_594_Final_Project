@@ -1,5 +1,9 @@
 package com.blog.controllers;
 
+import com.blog.entity.BlogEntity;
+import com.blog.pojo.Blog;
+import com.blog.pojo.User;
+import com.blog.service.BlogService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

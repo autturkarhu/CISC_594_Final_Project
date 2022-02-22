@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.NoSuchAlgorithmException;
 
-/**
- * Created by ameyutturkar on 1/8/22.
- */
 @Controller
 public class LoginController {
 

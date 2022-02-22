@@ -48,7 +48,7 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Boolean deleteBlog(String blogDelete) {
         try {
-            blogRepository.delete(blogDelete);
+            blogRepository.deleteById(blogDelete);
             return Boolean.TRUE;
         } catch (Exception e) {
             log.error(e);

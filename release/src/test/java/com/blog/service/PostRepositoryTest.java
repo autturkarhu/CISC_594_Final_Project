@@ -1,4 +1,4 @@
-package com.blog;
+package com.blog.service;
 
 import com.blog.pojo.Blog;
 import com.blog.pojo.Post;
@@ -34,7 +34,7 @@ public class PostRepositoryTest {
         List<String> tokens = new ArrayList<>();
         tokens.add("Sample Token 1");
 
-        User user = new User("Dave", "Matthews");
+        User user = new User("John", "Doe");
         user.setAccessTokens(tokens);
         userRepository.save(user);
 
@@ -51,7 +51,7 @@ public class PostRepositoryTest {
             System.out.println(post);
         }
         Assert.assertEquals("Assert that only one element is present in the list", 1, result.size());
-        postRepository.delete(result);
+        postRepository.delete(result.get(0));
     }
 
 }
