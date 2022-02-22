@@ -1,4 +1,4 @@
-package com.blog;
+package com.blog.service;
 
 import com.blog.pojo.Blog;
 import com.blog.pojo.User;
@@ -29,7 +29,7 @@ public class BlogRepositoryTest {
         List<String> tokens = new ArrayList<>();
         tokens.add("Sample Token 1");
 
-        User user = new User("Dave", "Matthews");
+        User user = new User("John", "Doe");
         user.setAccessTokens(tokens);
         userRepository.save(user);
 
@@ -43,7 +43,7 @@ public class BlogRepositoryTest {
             System.out.println(blog);
         }
         Assert.assertEquals("Assert that only one element is present in the list", 1, result.size());
-        blogRepository.delete(result);
+        blogRepository.delete(result.get(0));
     }
 
 }

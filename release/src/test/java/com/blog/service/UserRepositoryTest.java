@@ -1,4 +1,4 @@
-package com.blog;
+package com.blog.service;
 
 import com.blog.pojo.User;
 import com.blog.repositories.UserRepository;
@@ -24,7 +24,7 @@ public class UserRepositoryTest {
         List<String> tokens = new ArrayList<>();
         tokens.add("Sample Token 1");
 
-        User dave = new User("Dave", "Matthews");
+        User dave = new User("John", "Doe");
         dave.setAccessTokens(tokens);
         repository.save(dave);
 
@@ -33,21 +33,21 @@ public class UserRepositoryTest {
         carter.setAccessTokens(tokens);
         repository.save(carter);
 
-        List<User> result = repository.findByLastName("Matthews");
+        List<User> result = repository.findByLastName("John");
         Assert.assertNotNull("Assert that result is not empty", result);
 
         for (User user : result) {
             System.out.println(user);
+            repository.delete(user);
         }
-        repository.delete(result);
     }
 
     @Test
     public void testSearchByUsernameAndPassword() throws Exception {
-        User user = new User("Dave", "Matthews", "dave", "admin", "dave@example.com");
+        User user = new User("John", "Doe", "john", "admin", "john@example.com");
         repository.save(user);
 
-        User result = repository.findByUsernameAndPassword("dave", "admin");
+        User result = repository.findByUsernameAndPassword("john", "admin");
         Assert.assertNotNull(result);
         Assert.assertEquals("Assert that password is admin", user.getPassword(), "admin");
 
@@ -56,7 +56,7 @@ public class UserRepositoryTest {
 
     @Test
     public void testSearchByUsername() throws Exception {
-        User user = new User("Dave", "Matthews", "dave", "admin", "dave@example.com");
+        User user = new User("John", "Doe", "john", "admin", "john@example.com");
         repository.save(user);
 
         List users = repository.findByUsername("dave");

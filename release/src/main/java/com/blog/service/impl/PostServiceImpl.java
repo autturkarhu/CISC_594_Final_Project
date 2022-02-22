@@ -37,7 +37,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public Boolean deletePost(String postDelete) {
         try {
-            postRepository.delete(postDelete);
+            postRepository.deleteById(postDelete);
             return Boolean.TRUE;
         } catch (Exception e) {
             log.error(e);

@@ -1,4 +1,4 @@
-package com.blogientity;
+package com.blog.entity;
 
 public class BlogEntity {
 

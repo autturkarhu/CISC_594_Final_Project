@@ -1,11 +1,10 @@
 package com.blog.repositories;
 
-import java.util.List;
-
+import com.blog.pojo.Blog;
 import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
 import org.springframework.data.repository.CrudRepository;
 
-import com.blog.pojo.Blog;
+import java.util.List;
 
 @EnableScan
 public interface BlogRepository extends CrudRepository<Blog, String> {
