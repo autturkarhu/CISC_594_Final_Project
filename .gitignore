@@ -3,4 +3,7 @@
 *.iml
 *.ipr
 .DS_Store
-target/*
+target/
+.classpath
+.project
+.settings/
