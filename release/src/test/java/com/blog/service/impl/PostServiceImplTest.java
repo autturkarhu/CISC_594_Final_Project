@@ -53,7 +53,7 @@ public class PostServiceImplTest {
     }
 
     @Test
-    public void deletepost() throws Exception {
+    public void deletePost() throws Exception {
         User user = new User("Test_firstname", "Test_lastname");
         userRepository.save(user);
         blogEntity.setUserID(user.getId());

@@ -5,18 +5,18 @@ import com.blog.repositories.UserRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RunWith(SpringRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
 public class UserRepositoryTest {
 
-    @Autowired
+    @Mock
     private UserRepository repository;
 
     @Test
@@ -33,7 +33,7 @@ public class UserRepositoryTest {
         carter.setAccessTokens(tokens);
         repository.save(carter);
 
-        List<User> result = repository.findByLastName("John");
+        List<User> result = repository.findByLastName("Doe");
         Assert.assertNotNull("Assert that result is not empty", result);
 
         for (User user : result) {
@@ -59,7 +59,7 @@ public class UserRepositoryTest {
         User user = new User("John", "Doe", "john", "admin", "john@example.com");
         repository.save(user);
 
-        List users = repository.findByUsername("dave");
+        List users = repository.findByUsername("john");
         Assert.assertNotNull(users);
     }
 }
