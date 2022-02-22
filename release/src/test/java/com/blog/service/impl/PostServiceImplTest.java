@@ -1,13 +1,5 @@
 package com.blog.service.impl;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
 import com.blog.entity.BlogEntity;
 import com.blog.entity.PostEntity;
 import com.blog.pojo.Blog;
@@ -15,6 +7,13 @@ import com.blog.pojo.User;
 import com.blog.repositories.BlogRepository;
 import com.blog.repositories.UserRepository;
 import com.blog.service.PostService;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
